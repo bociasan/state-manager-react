@@ -2,6 +2,7 @@ import './App.css';
 import {useEffect, useState} from "react";
 import Counter from "./components/Counter/Counter";
 import Reset from "./components/Reset/Reset";
+import EvenDetector from "./components/EvenDetector/EvenDetector";
 
 function App() {
   const [countValue, setCountValue] = useState(0)
@@ -15,7 +16,6 @@ function App() {
 
   const unsubscribeFunction = (subscriber) => {
     setSubscribers([...subscribers].filter(el => el.name !== subscriber.name))
-
     console.log(`--- '${subscriber.name}' unsubscribed ---`)
   }
 
@@ -58,6 +58,7 @@ function App() {
 
   return (
     <div className="App">
+      <EvenDetector manager={manager}/>
         <Counter manager={manager}/>
       <Reset manager={manager}/>
     </div>

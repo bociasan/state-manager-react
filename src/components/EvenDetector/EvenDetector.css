@@ -1,0 +1,48 @@
+.even-detector-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    width: 200px;
+    height: 150px;
+    transition-duration: 1s;
+    transition: ease-in-out;
+    color:#666666;
+}
+
+.even-detector-title{
+    font-size: 1.5em;
+
+}
+
+.value-indicator-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.circle-indicator{
+
+    background-color: whitesmoke;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.even-detector-text{
+    padding-bottom: 6px;
+    font-size: 3em;
+    text-shadow: 5px 5px 20px #cccccc99;
+}
+
+.even{
+    background-color: #00ff00af !important;
+    color: #ff0000af !important;
+}
+
+.odd{
+    background-color: #ff0000af !important;
+    color: #00ff00af !important;
+}

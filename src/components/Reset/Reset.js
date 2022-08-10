@@ -12,10 +12,11 @@ export const Reset = ({manager}) => {
     useEffect(() => manager.subscribe(SUBSCRIBER), [])
 
     return <div className="reset-container component-main-container">
-    <button className="reset-button" onClick={() => reset()}>Reset</button>
+        <div className="reset-title title"> Reset </div>
     <div className="reset-text">
         {value}
     </div>
+    <button className="reset-button" onClick={() => reset()}>Reset</button>
 
     </div>
 }
