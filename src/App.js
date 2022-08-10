@@ -6,15 +6,16 @@ import Reset from "./components/Reset/Reset";
 function App() {
   const [countValue, setCountValue] = useState(0)
   const [subscribers, setSubscribers] = useState([])
-
   const subscribeFunction = (subscriber) => {
     console.log(`--- '${subscriber.name}' subscribed ---`)
     subscriber.callBackFunction(countValue)
-    setSubscribers([...subscribers, subscriber])
+    // setSubscribers([...subscribers, subscriber])
+    subscribers.push(subscriber)
   }
 
   const unsubscribeFunction = (subscriber) => {
     setSubscribers([...subscribers].filter(el => el.name !== subscriber.name))
+
     console.log(`--- '${subscriber.name}' unsubscribed ---`)
   }
 
@@ -58,6 +59,7 @@ function App() {
   return (
     <div className="App">
         <Counter manager={manager}/>
+      <Reset manager={manager}/>
     </div>
   );
 }

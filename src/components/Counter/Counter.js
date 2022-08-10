@@ -2,7 +2,7 @@ import './Counter.css'
 import {useEffect, useState} from "react";
 
 export const Counter = ({manager}) => {
-    const [value, setValue] = useState(-1)
+    const [value, setValue] = useState(-2)
     const SUBSCRIBER = {
         name: "counter-component",
         callBackFunction: setValue

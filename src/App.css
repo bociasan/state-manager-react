@@ -17,7 +17,7 @@ button{
   border:1px solid #dcdcdc;
   display:inline-block;
   cursor:pointer;
-  color:#666666;
+  /*color:#666666;*/
   font-family:Arial;
   font-size:15px;
   font-weight:bold;
@@ -38,9 +38,11 @@ button{
   box-shadow: 5px 5px 20px #ffffff99;
   transition: ease-in-out;
   transition-duration: 0.3s;
+  /*color:#666666;*/
 }
 
 .component-main-container:hover{
   box-shadow: 2px 2px 30px #ffffffCC;
   background-color: #ffffff55;
+
 }
