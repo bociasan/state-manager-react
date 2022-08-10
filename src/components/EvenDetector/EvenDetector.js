@@ -1,7 +1,9 @@
 import './EvenDetector.css'
 import {useEffect, useState} from "react";
+import {globalManager} from "../../App";
 
-export const EvenDetector = ({manager}) => {
+export const EvenDetector = () => {
+    const manager = globalManager
     const DEF = "circle-indicator"
     const [value, setValue] = useState(555)
     const SUBSCRIBER = {

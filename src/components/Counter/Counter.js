@@ -1,7 +1,9 @@
 import './Counter.css'
 import {useEffect, useState} from "react";
+import {globalManager} from "../../App";
 
-export const Counter = ({manager}) => {
+export const Counter = () => {
+    const manager = globalManager
     const [limit, setLimit] = useState(10)
     const [checked, setChecked]= useState(true)
     const [value, setValue] = useState(-2)

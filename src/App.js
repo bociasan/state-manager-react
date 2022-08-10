@@ -4,6 +4,14 @@ import Counter from "./components/Counter/Counter";
 import Reset from "./components/Reset/Reset";
 import EvenDetector from "./components/EvenDetector/EvenDetector";
 
+export const globalManager = {
+  subscribe: ()=>{},
+  unsubscribe: ()=>{},
+  dispatch: ()=>{},
+
+}
+
+
 function App() {
   const [countValue, setCountValue] = useState(0)
   const [subscribers, setSubscribers] = useState([])
@@ -39,12 +47,18 @@ function App() {
     }
   }
 
+
+
   const manager = {
     subscribe: subscribeFunction,
     unsubscribe: unsubscribeFunction,
     dispatch: dispatchFunction,
     // countValue: countValue
   }
+
+  globalManager["subscribe"] = subscribeFunction
+  globalManager["unsubscribe"] = unsubscribeFunction
+  globalManager["dispatch"] = dispatchFunction
 
   useEffect(()=>{
     subscribers.forEach(subscriber => {
@@ -58,9 +72,9 @@ function App() {
 
   return (
     <div className="App">
-      <EvenDetector manager={manager}/>
-        <Counter manager={manager}/>
-      <Reset manager={manager}/>
+      <EvenDetector />
+        <Counter />
+      <Reset />
     </div>
   );
 }

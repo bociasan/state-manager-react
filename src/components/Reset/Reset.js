@@ -1,8 +1,9 @@
 import './Reset.css'
 import {useEffect, useState} from "react";
+import {globalManager} from "../../App";
 
-
-export const Reset = ({manager}) => {
+export const Reset = () => {
+    const manager = globalManager
     const [value, setValue] = useState(999)
     const SUBSCRIBER = {
         name: "reset-component",
@@ -10,6 +11,8 @@ export const Reset = ({manager}) => {
     }
     const reset = () => manager.dispatch({type: 'RESET'})
     useEffect(() => manager.subscribe(SUBSCRIBER), [])
+
+    // console.log(globalManager)
 
     return <div className="reset-container component-main-container">
         <div className="reset-title title"> Reset </div>
