@@ -1,0 +1,23 @@
+.reset-container{
+    width: 150px;
+    height: 100px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff44;
+    box-shadow: 5px 5px 20px #ffffff99;
+    transition: ease-in-out;
+    transition-duration: 0.14s;
+}
+
+.reset-button{
+
+}
+
+.reset-text{
+
+}
