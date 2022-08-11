@@ -1,27 +1,29 @@
 import './EvenDetector.css'
 import {useEffect, useState} from "react";
 import {globalManager} from "../StateManager/StateManager";
+import {createSubscriber, createUnsubscriber} from "../../utils/functions";
 
 export const EvenDetector = () => {
     const UNSUBSCRIBED_VALUE = '---'
     const manager = globalManager
     const [limit, setLimit] = useState(10)
     const [checked, setChecked]= useState(false)
-    const [subscribed, setSubscribed] = useState(false)
-    const [value, setValue] = useState(UNSUBSCRIBED_VALUE)
-    const SUBSCRIBER = {
-        name: "even-detector-component",
-        callBackFunction: setValue
-    }
+    const [subscribed, setSubscribed] = useState(true)
+    const [counterValue, setCounterValue] = useState(UNSUBSCRIBED_VALUE)
+    const NAME = 'even-detector-component'
+    const STORES = [{count:setCounterValue}]
+    const SUBSCRIBER = createSubscriber(NAME, STORES)
+    const STORE = 'count'
+    const UNSUBSCRIBER = createUnsubscriber(NAME, STORE)
 
     const subscribe = () => {
         manager.subscribe(SUBSCRIBER)
         setSubscribed(true)
     }
     const unsubscribe = () => {
-        manager.unsubscribe(SUBSCRIBER)
+        manager.unsubscribe(UNSUBSCRIBER)
         setSubscribed(false)
-        setValue(UNSUBSCRIBED_VALUE)
+        setCounterValue(UNSUBSCRIBED_VALUE)
     }
 
     const handleBellClick = () => {
@@ -31,7 +33,7 @@ export const EvenDetector = () => {
     }
 
     const handleCheckbox = () => {
-        if (!checked && subscribed && value > limit) showLimitAlert()
+        if (!checked && subscribed && counterValue > limit) showLimitAlert()
         setChecked(!checked)
     }
 
@@ -40,12 +42,12 @@ export const EvenDetector = () => {
         unsubscribe()
     }
 
-    // useEffect(() => subscribe(), [])
+    useEffect(() => subscribe(), [])
     useEffect(() => {
-        if (checked && value > limit) {
+        if (checked && counterValue > limit) {
             showLimitAlert()
         }
-    }, [value])
+    }, [counterValue])
 
 
     return <div className="even-detector-container component-main-container">
@@ -58,11 +60,11 @@ export const EvenDetector = () => {
                      src={require("../../img/bell.png")} onClick={() => handleBellClick()}/>
             </div>
             <div className="even-detector-text value">
-                {value}
+                {counterValue}
             </div>
             <div className={"circle-indicator-container"}>
-                <div className={value === 0 || value === UNSUBSCRIBED_VALUE ? "circle-indicator" :
-                    value % 2 === 0 ? "circle-indicator even" : "circle-indicator odd"}/>
+                <div className={counterValue === 0 || counterValue === UNSUBSCRIBED_VALUE ? "circle-indicator" :
+                    counterValue % 2 === 0 ? "circle-indicator even" : "circle-indicator odd"}/>
             </div>
         </div>
         <div className={"limit-container component-main-container"}>
