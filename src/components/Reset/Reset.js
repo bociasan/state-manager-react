@@ -1,10 +1,10 @@
 import './Reset.css'
 import {useEffect, useState} from "react";
-import {globalManager} from "../../App";
+import {globalManager} from "../StateManager/StateManager";
 
 export const Reset = () => {
     const manager = globalManager
-    const [value, setValue] = useState(999)
+    const [value, setValue] = useState(-3)
     const SUBSCRIBER = {
         name: "reset-component",
         callBackFunction: setValue
@@ -16,7 +16,7 @@ export const Reset = () => {
 
     return <div className="reset-container component-main-container">
         <div className="reset-title title"> Reset </div>
-    <div className="reset-text">
+    <div className="reset-text value">
         {value}
     </div>
     <button className="reset-button" onClick={() => reset()}>Reset</button>

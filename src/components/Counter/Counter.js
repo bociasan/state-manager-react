@@ -1,6 +1,6 @@
 import './Counter.css'
 import {useEffect, useState} from "react";
-import {globalManager} from "../../App";
+import {globalManager} from "../StateManager/StateManager";
 
 export const Counter = () => {
     const manager = globalManager
@@ -27,7 +27,7 @@ export const Counter = () => {
             <div className="title"> Counter </div>
         </div>
         <div className="count-value-container">
-            <div className="count-value">
+            <div className="count-value value">
                 {value}
             </div>
         </div>

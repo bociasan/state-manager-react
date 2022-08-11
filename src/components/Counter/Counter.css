@@ -1,8 +1,5 @@
 .counter-component-container{
-    position: relative;
-    /*justify-content: space-around;*/
-    height: 250px;
-    width: 400px;
+
 }
 
 .title-container{
@@ -31,9 +28,9 @@
 }
 
 .count-value{
-    color:#666666;
-    font-size: 3em;
-    text-shadow: 5px 5px 20px #cccccc99;
+    /*color:#666666;*/
+    /*font-size: 3em;*/
+    /*text-shadow: 5px 5px 20px #cccccc99;*/
 }
 
 .buttons-container{

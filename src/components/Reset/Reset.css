@@ -1,13 +1,9 @@
 .reset-container{
-    width: 200px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 
 .reset-title{
-    font-size: 1.5em;
+    /*font-size: 2.5em;*/
 }
 
 .reset-button{
@@ -15,8 +11,5 @@
 }
 
 .reset-text{
-    color:#666666;
-
-    font-size: 2.5em;
 
 }
