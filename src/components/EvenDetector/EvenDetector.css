@@ -4,7 +4,7 @@
     justify-content: center;
     vertical-align: center;
     width: 300px;
-    height: 300px;
+    height: 250px;
     /*transition-duration: 1s;*/
     /*transition: ease-in-out;*/
     /*color:#666666;*/
@@ -42,4 +42,65 @@
 
 .circle-indicator.odd{
     background-color: #ff0000af;
+}
+
+.bottom-container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscribe-container{
+    height: 50px;
+    width: 50px;
+
+}
+
+.bell{
+    height: 100%;
+    width: 100%;
+}
+
+.bell.subscribed{
+    /*filter: hue-rotate(100deg);*/
+}
+
+.bell.unsubscribed{
+    filter: hue-rotate(100deg);
+}
+
+.limit-container{
+    padding: 13px;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 130px;
+    border-radius: 20px;
+    border: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.limit-container:hover{
+    background-color: #ffffff44;
+    box-shadow: 5px 5px 20px #ffffff99;
+}
+
+.row-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.limit-number-input{
+    width: 20%;
 }

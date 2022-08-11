@@ -7,6 +7,7 @@ export const EvenDetector = () => {
     const DEF = "circle-indicator"
     const [limit, setLimit] = useState(10)
     const [checked, setChecked]= useState(true)
+    const [subscribed, setSubscribed] = useState(false)
     const [value, setValue] = useState(-1)
     const SUBSCRIBER = {
         name: "even-detector-component",
@@ -14,11 +15,22 @@ export const EvenDetector = () => {
     }
 
 
-    const subscribe = () => manager.subscribe(SUBSCRIBER)
+    const subscribe = () => {
+        manager.subscribe(SUBSCRIBER)
+        setSubscribed(true)
+    }
     const unsubscribe = () => {
         manager.unsubscribe(SUBSCRIBER)
+        setSubscribed(false)
         setValue('---')
     }
+
+    const handleBellClick = () => {
+        if (subscribed)
+            unsubscribe()
+        else subscribe()
+    }
+
     useEffect(() => subscribe(), [])
     useEffect(() => {
         if (checked && value > limit) {
@@ -37,27 +49,29 @@ export const EvenDetector = () => {
                 {value}
             </div>
             <div className={
-                value === 0 ? DEF :
+                value === 0 || value === '---' ? DEF :
                     value % 2 === 0 ? DEF.concat(" even") : DEF.concat(" odd")
             }/>
 
         </div>
-        <div className="row-container">
-            <button onClick={() => subscribe()}> Subscribe </button>
-            <button onClick={() => unsubscribe()}> Unsubscribe </button>
-        </div>
-        <div className={"limit-container component-main-container"}>
-            <div className="row-container">
-                <div className={"limit-check-label"}>Limit check</div>
-                <input type={"checkbox"} checked={checked ? "checked" : ""}
-                       className={"limit-checkbox"} onChange={()=>setChecked(!checked)}/>
+        <div className={"bottom-container"}>
+            <div className={"subscribe-container"}>
+                <img className={subscribed ? "bell subscribed" : "bell unsubscribed"}
+                     src={require("../../img/bell.png")} onClick={() => handleBellClick()}></img>
             </div>
-            <div className="row-container">
-                <div>
-                    Limit value
+            <div className={"limit-container component-main-container"}>
+                <div className="row-container">
+                    <div className={"limit-check-label"}>Limit check</div>
+                    <input type={"checkbox"} checked={checked ? "checked" : ""}
+                           className={"limit-checkbox"} onChange={()=>setChecked(!checked)}/>
                 </div>
-                <input className={"limit-number-input"} type="text" inputMode="numeric" pattern="\d*"
-                       value={limit} onChange={(e) => setLimit(parseInt(e.target.value))}/>
+                <div className="row-container">
+                    <div>
+                        Limit value
+                    </div>
+                    <input className={"limit-number-input"} type="text" inputMode="numeric" pattern="\d*"
+                           value={limit} onChange={(e) => setLimit(parseInt(e.target.value))}/>
+                </div>
             </div>
         </div>
     </div>
