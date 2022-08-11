@@ -10,7 +10,7 @@ export const EvenDetector = () => {
     const [checked, setChecked]= useState(false)
     const [subscribed, setSubscribed] = useState(true)
     const [counterValue, setCounterValue] = useState(UNSUBSCRIBED_VALUE)
-    const NAME = 'even-detector-component'
+    const NAME = 'EVDT'
     const STORES = [{count:setCounterValue}]
     const SUBSCRIBER = createSubscriber(NAME, STORES)
     const STORE = 'count'

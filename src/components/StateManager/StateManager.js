@@ -10,7 +10,7 @@ export const StateManager = () => {
             value:0,
             subscribers: []
         },
-        totalSubscribers: {
+        totalCountSubscribers: {
             value:0,
             subscribers: []
         }
@@ -27,15 +27,15 @@ export const StateManager = () => {
 
     const handleOnSubscribe = (storeName) => {
         if (storeName === 'count') {
-            state['totalSubscribers'].value++
-            handleTotalSubscribersStore('totalSubscribers')
+            state['totalCountSubscribers'].value++
+            handleTotalSubscribersStore('totalCountSubscribers')
         }
     }
 
     const handleOnUnubscribe = (storeName) => {
         if (storeName === 'count') {
-            state['totalSubscribers'].value--
-            handleTotalSubscribersStore('totalSubscribers')
+            state['totalCountSubscribers'].value--
+            handleTotalSubscribersStore('totalCountSubscribers')
         }
     }
 
@@ -50,7 +50,7 @@ export const StateManager = () => {
             case 'count':
                 handleCountStore(type)
                 break
-            case 'totalSubscribers':
+            case 'totalCountSubscribers':
                 handleTotalSubscribersStore(store)
                 break
         }
@@ -85,14 +85,12 @@ export const StateManager = () => {
         state[store].subscribers.forEach(subscriber => {
             subscriber.function(state[store].value)
         })
-        console.log(state[store].subscribers)
-        console.log(`Store: ${store},Value: ${state[store].value}, Subscribers length: ${state[store].subscribers.length}`)
+        // console.log(state[store].subscribers)
+        console.log(`Store: ${store}, Value: ${state[store].value}, Subscribers: ${state[store].subscribers.length}`)
     }
 
     const handleTotalSubscribersStore = (store) => {
         sendToSubscribers(store)
     }
-
-
 }
 export default StateManager

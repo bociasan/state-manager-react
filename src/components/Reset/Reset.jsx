@@ -6,7 +6,7 @@ import {createSubscriber} from "../../utils/functions";
 export const Reset = () => {
     const manager = globalManager
     const [counterValue, setCounterValue] = useState(-3)
-    const NAME = 'reset-component'
+    const NAME = 'RST'
     const STORES = [{count:setCounterValue}]
     const SUBSCRIBER = createSubscriber(NAME, STORES)
     const reset = () => manager.dispatch({store: 'count', type: 'RESET'})

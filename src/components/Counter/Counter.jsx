@@ -8,8 +8,8 @@ export const Counter = () => {
 
     const [value, setValue] = useState(-2)
     const [totalSubscribers, setTotalSubscribers] = useState('?')
-    const NAME = 'counter-component'
-    const STORES = [{count:setValue}, {totalSubscribers:setTotalSubscribers}]
+    const NAME = 'CNT'
+    const STORES = [{count:setValue}, {totalCountSubscribers:setTotalSubscribers}]
     const SUBSCRIBER = createSubscriber(NAME, STORES)
 
     const increment = () => manager.dispatch({store: 'count', type: 'INCREMENT'})
