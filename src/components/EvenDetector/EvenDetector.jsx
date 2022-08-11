@@ -31,7 +31,7 @@ export const EvenDetector = () => {
     }
 
     const handleCheckbox = () => {
-        if (!checked && subscribed) showLimitAlert()
+        if (!checked && subscribed && value > limit) showLimitAlert()
         setChecked(!checked)
     }
 
