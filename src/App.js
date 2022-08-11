@@ -72,8 +72,8 @@ function App() {
 
   return (
     <div className="App">
+      <Counter />
       <EvenDetector />
-        <Counter />
       <Reset />
     </div>
   );
